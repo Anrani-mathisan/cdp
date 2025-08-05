@@ -1,0 +1,89 @@
+/* Full-Page Background GIF */
+body {
+    font-family: Arial, sans-serif;
+    background: url("../static/animation.gif") no-repeat center center fixed;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+/* Styling the Container */
+.container {
+    background-color: rgba(255, 255, 255, 0.85); /* Semi-transparent white for readability */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    width: 400px;
+    text-align: center;
+}
+
+/* Title Styling */
+h1 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Form Styling */
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Label Styling */
+label {
+    text-align: left;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+/* Input and Select Fields */
+input, select {
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+    font-size: 16px;
+}
+
+/* Button Styling */
+button {
+    margin-top: 15px;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Result Message Styling */
+.result {
+    margin-top: 20px;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 10px;
+    border-radius: 5px;
+    display: inline-block;
+}
+
+/* Deposit Prediction: Green Color */
+.result.deposit {
+    color: white;
+    background-color: #28a745;
+}
+
+/* No Deposit Prediction: Red Color */
+.result.no-deposit {
+    color: white;
+    background-color: #dc3545;
+}

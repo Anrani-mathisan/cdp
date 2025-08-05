@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Predict Customer Deposit</title>
+    
+    <!-- Link to External CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    
+    <!-- Inline Style for Background GIF -->
+    <style>
+        body {
+            background: url("{{ url_for('static', filename='animation.gif') }}") no-repeat center center fixed;
+            background-size: cover;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Predict Customer Deposit</h1>
+        
+        <form method="POST">
+            <!-- Job Type -->
+            <label>Job Type:</label>
+            <select name="job" required>
+                {% for job in job_options %}
+                    <option value="{{ job }}">{{ job }}</option>
+                {% endfor %}
+            </select>
+
+            <!-- Account Balance -->
+            <label>Account Balance:</label>
+            <input type="number" name="balance" required>
+
+            <!-- Call Duration -->
+            <label>Call Duration (seconds):</label>
+            <input type="number" name="duration" required>
+
+            <!-- Campaign Contacts -->
+            <label>Number of Contacts During Campaign:</label>
+            <input type="number" name="campaign" required>
+
+            <!-- Days Since Last Contact -->
+            <label>Days Since Last Contact (-1 if never contacted before):</label>
+            <input type="number" name="pdays" required>
+
+            <!-- Previous Contacts -->
+            <label>Previous Contacts:</label>
+            <input type="number" name="previous" required>
+
+            <!-- Outcome of Previous Contact -->
+            <label>Outcome of Previous Contact:</label>
+            <select name="poutcome" required>
+                {% for poutcome in poutcome_options %}
+                    <option value="{{ poutcome }}">{{ poutcome }}</option>
+                {% endfor %}
+            </select>
+
+            <!-- Submit Button -->
+            <button type="submit">Predict</button>
+        </form>
+
+        <!-- Display Prediction Result -->
+        {% if result %}
+            <div class="result {% if '✅' in result %}deposit{% else %}no-deposit{% endif %}">
+                {{ result }}
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>
